@@ -80,7 +80,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
 
     /* This is called by the update function  and loops through all of the
@@ -161,6 +161,21 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+    }
+
+    /* This function checks for any collisions using cellPosition key.
+     * If collision it will reset the player to starting position.
+     */
+    function checkCollisions() {
+        allEnemies.forEach(function(enemy){
+            var collision = false;
+            if(enemy.cellPosition.row === player.cellPosition.row && enemy.cellPosition.column === player.cellPosition.column) {
+               collision = true;
+            }
+            if(collision) {
+                player.resetPosition();
+            }
+        })
     }
 
     /* Go ahead and load all of the images we know we're going to need to
