@@ -168,12 +168,20 @@ var Engine = (function(global) {
      */
     function checkCollisions() {
         allEnemies.forEach(function(enemy){
+            var columnCollision = false;
+            var rowCollision = false;
             var collision = false;
-            if(enemy.cellPosition.row === player.cellPosition.row && enemy.cellPosition.column === player.cellPosition.column) {
-               collision = true;
+
+            if (player.x < enemy.x + 101 && player.x + 101 > enemy.x) {
+                columnCollision = true;
             }
-            if(collision) {
-                player.resetPosition();
+
+            if (enemy.cellPosition.row === player.cellPosition.row) {
+                rowCollision = true;
+            }
+
+            if(rowCollision && columnCollision) {
+               player.resetPosition();
             }
         })
     }

@@ -7,6 +7,8 @@ for self-checking their submission.
 
 Instructions
 
-Please move the user into the water avoiding the bugs!
+Open index.html - the game will load and as soon as you see the grid the race is on!
+
+Please move the user around avoiding the bugs and the water! The bugs will appear randomly dont think you can beat the system by timing the bugs :-)
 
 Press up, down, left and right arrow keys on your keyboard to move your player.

@@ -84,6 +84,10 @@ Player.prototype.handleInput = function(direction) {
     if(direction === 'up' && this.cellPosition.row > 1) {
         this.y = this.y - 83;
         this.cellPosition.row = this.cellPosition.row - 1;
+        // If Player reaches water reset to starting position
+        if(this.cellPosition.row == 1){
+            this.resetPosition();
+        }
     }
 
     if(direction === 'down' && this.cellPosition.row < 6) {
@@ -92,12 +96,12 @@ Player.prototype.handleInput = function(direction) {
     }
 
     if(direction === 'left' && this.cellPosition.column > 1) {
-        this.x = this.x - 100;
+        this.x = this.x - 101;
         this.cellPosition.column = this.cellPosition.column - 1;
     }
 
     if(direction === 'right' && this.cellPosition.column < 5) {
-        this.x = this.x + 100;
+        this.x = this.x + 101;
         this.cellPosition.column = this.cellPosition.column + 1;
     }
 };
