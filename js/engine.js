@@ -172,7 +172,7 @@ var Engine = (function(global) {
             var rowCollision = false;
             var collision = false;
 
-            if (player.x < enemy.x + 101 && player.x + 101 > enemy.x) {
+            if (enemy.x + 101 >= player.x + 20 && enemy.x <= player.x + 81) {
                 columnCollision = true;
             }
 
@@ -183,7 +183,7 @@ var Engine = (function(global) {
             if(rowCollision && columnCollision) {
                player.resetPosition();
             }
-        })
+        });
     }
 
     /* Go ahead and load all of the images we know we're going to need to
